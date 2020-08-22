@@ -100,7 +100,7 @@ pip install -r requirements.txt
 python setup.py develop
 ```
 
-###代码说明
+### 代码说明
 ```
 mmdetection
 ├── mmdet
@@ -128,6 +128,8 @@ mmdetection
 │   ├── src 
 
 ```
+--------------------------------------
+```
 ├── code
 │   ├── config  							#配置文件
 │   │   ├── _base_  						#存放model,data,学习策略等配置信息
@@ -149,7 +151,7 @@ train.py读取的config是cascade_rcnn_r50_fpn_dconv_c3-c5_1x_coco.py。
 │   ├── test_for_mm.py					   #mmdetection的测试文件
 ```
 
-##预训练模型准备
+## 预训练模型准备
 
 预训练模型可在README.md中进行查找下载
 ```
@@ -167,7 +169,7 @@ cascade_rcnn_r50_fpn_dconv_c3-c5_1x_coco_20200130-2f1fca44
 https://open-mmlab.s3.ap-northeast-2.amazonaws.com/mmdetection/v2.0/dcn/cascade_rcnn_r50_fpn_dconv_c3-c5_1x_coco/cascade_rcnn_r50_fpn_dconv_c3-c5_1x_coco_20200130-2f1fca44.pth
 
 
-##数据准备
+## 数据准备
 
 训练数据需要转换为coco或者voc的标准格式
 ```
@@ -187,7 +189,7 @@ coco数据集合格式：
 
 详细代码见src/Fabric2COCO
 
-##训练
+## 训练
 
 训练代码在tool.train.py
 ```
@@ -200,7 +202,7 @@ ps: 训练是需要修改学习率(schedule_1x.py)
 学习率策略=0.00125*batchsize.    
 batchsize = worders_per_gpu(多少个GPU) * samples_per_gpu(每个gpu多少张图片)
 
-###单卡训练：
+### 单卡训练：
 ```shell
 python tools/train.py ${CONFIG_FILE} [optional arguments]
 ```
@@ -210,7 +212,7 @@ EXAMPLE
 python mmdetection/tools/train.py ../code/config/cascade_rcnn_r50_fpn_dconv_c3-c5_1x_coco.py --gpus 1 --work-dir ../code/config/submit
 ```
 
-###多卡训练：
+### 多卡训练：
 ```shell
 ./tools/dist_train.sh ${CONFIG_FILE} ${GPU_NUM} [optional arguments]
 ```
@@ -222,12 +224,12 @@ EXAMPLE
 
 
 
-##测试
+## 测试
 ```shell
 python mmdetection/tools/test.py ../code/config/cascade_rcnn_r50_fpn_dconv_c3-c5_1x_coco.py ../code/config/submit/训练生成的权重 --out results.pkl --eval bbox
 ```
 
-###Image demo
+### Image demo
 ```shell
 python demo/image_demo.py ${IMAGE_FILE} ${CONFIG_FILE} ${CHECKPOINT_FILE} [--device ${GPU_ID}] [--score-thr ${SCORE_THR}]
 ```
@@ -239,8 +241,8 @@ python demo/image_demo.py demo/demo.jpg configs/faster_rcnn_r50_fpn_1x_coco.py \
 ```
 
 
-##可视化
-###log分析
+## 可视化
+### log分析
 
 首先需要安装seaborn
 
