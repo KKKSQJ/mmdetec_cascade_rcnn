@@ -30,6 +30,7 @@ pip install 下载目录/torchvision-0.4.2-cp37-cp37m-win_amd64.whl
 ```
 
 3. torch源码修改
+```shell
 环境目录指open-mmlab虚拟环境位置
 参考：https://zhuanlan.zhihu.com/p/159912450
 a. 修改 环境目录下\Lib\site-packages\torch\include\c10\util\flat_hash_map.h
@@ -37,6 +38,7 @@ b. 修改 环境目录下\Lib\site-packages\torch\include\c10\util\order_preserv
 c. 修改 环境目录下\Lib\site-packages\torch\utils\cpp_extension.py
 d. 修改 环境目录下\Lib\site-packages\torch\include\torch\csrc\jit\argument_spec.h
 e. 修改 环境目录下\Lib\site-packages\torch\include\pybind11\cast.h
+```
 
 4. pycocotools安装
 ```shell
